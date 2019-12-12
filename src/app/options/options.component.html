@@ -1,0 +1,58 @@
+<!--<h1>{{ username }}</h1>
+
+
+
+<h1>Enter Option 1</h1>
+
+<input type="hidden" name="options.questionRef" [value]="100" [(ngModel)] = "options.questionRef" />
+
+<input [(ngModel)] = "options.choice" >
+
+<div class="custom-control custom-radio">
+  <input type="radio" class="custom-control-input" id="correct" name="options.valid" [value]="true" [(ngModel)] = "options.valid">
+  <label class="custom-control-label" for="correct">Correct</label>
+</div>
+
+
+<div class="custom-control custom-radio">
+  <input type="radio" class="custom-control-input" id="wrong" name="options.choice" [value]="false" [(ngModel)] = "options.valid">
+  <label class="custom-control-label" for="wrong">Wrong</label>
+</div>
+<button class="btn btn-success" (click)="saveOptions()"><label>Save</label></button>-->
+
+
+<form style="width: 500px;"  #form="ngForm" (submit)="onSubmit(form)">
+    
+  <div class="row">
+    <div class="col-md-6">
+      <div class="form-group">
+        
+          </div>
+
+
+          <input type="text" class="form-control" id="choice"
+       required placeholder="Enter Option"
+       [(ngModel)]="options.choice" name="choice">
+       <br>
+
+          
+         <div class="custom-control custom-radio">
+            <input type="radio" class="custom-control-input"  id="correct" name="valid" [value]="true" [(ngModel)] = "options.valid">
+            <label class="custom-control-label" for="correct">Correct</label>
+          </div>
+          <br>
+          
+          <div class="custom-control custom-radio">
+            <input type="radio" class="custom-control-input"  id="wrong" name="valid" [value]="false" [(ngModel)] = "options.valid">
+            <label class="custom-control-label" for="wrong">Wrong</label>
+          </div>
+        </div>
+  </div><br>
+  <div class="form-group">
+    <button style="background-color: rgb(6, 114, 6);;" type="submit" class="btn btn-dark"><i class="fa fa-database"></i> Submit</button>
+    <button style="background-color: rgb(121, 22, 22);color: white;" type="button" class="btn btn-outline-dark ml-1" [mat-dialog-close]><i class="fa fa-close"></i> Close</button>
+  </div>
+</form>
+
+
+

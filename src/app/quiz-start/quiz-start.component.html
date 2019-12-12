@@ -1,0 +1,16 @@
+
+<button mat-button style="margin-left: 40%;"  (click)="prepareQuiz()">Start Quiz</button>
+
+<ul>
+    <li *ngFor="let question of questions; let i = index; let odd = odd"
+        [class.odd]="odd">
+     {{question.questionContent}}
+    
+    <ul>
+        <li *ngFor="let question of questions; let i = index; let odd = odd"
+            [class.odd]="odd">
+         {{question.questionContent}}
+        </li>
+      </ul>
+    </li>
+  </ul>

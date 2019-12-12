@@ -1,0 +1,68 @@
+<!--<h1>Welcome to {{ title }}</h1>
+<h1>Id {{ id }}</h1>
+
+<input [(ngModel)] = "question.questionContent" > 
+<button class="btn btn-success" (click)="save()"><label>Save</label></button> -->
+
+
+
+<mat-card style="margin: 100px;background-color: rgb(6, 114, 6);">
+<form #form="ngForm"  (submit)=saveORupdate(form) > 
+    
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group">
+          
+            </div>
+
+            <input type="text" class="form-control" id="questionContent"
+            required placeholder="Enter Question"
+            [(ngModel)]="question.questionContent" name="questionContent"><br> <br> <br>
+                        
+
+          </div>
+    </div>
+    <table class="table table-borderless">
+        <thead class="thead-light">
+          <th style="font-family: 'Times New Roman', Times, serif;font-size: 17px;align-items: center;color:  rgb(121, 22, 22) ;" >Option</th>
+          <th style="font-family: 'Times New Roman', Times, serif;font-size: 17px;align-items: center;color:  rgb(121, 22, 22) ;">Valid</th>
+          
+          <th>
+                <a style="background-color: rgb(121, 22, 22) ;font-family: 'Times New Roman', Times, serif;font-size: 17px;" class="btn btn-sm btn-success text-white" (click)="addOption(null)"><i class="fa fa-plus"></i> Add Options</a>
+          </th>
+        </thead>
+        <tbody>
+
+    <tr *ngFor="let option of questionService.options;let i=index;">
+        <td style="color: white ;font-family: 'Times New Roman', Times, serif;font-size: 17px;">{{option.choice}}</td>
+        <td style="color: white;font-family: 'Times New Roman', Times, serif;font-size: 17px;">{{option.valid}}</td>
+        <td>
+        <a class="btn btn-sm btn-danger text-white ml-1" (click)="onDeleteOption(i)"><i class="fa fa-trash"></i></a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+    <div class="form-group">
+        <button style="background-color: rgb(121, 22, 22) ;" type="submit" class="btn btn-dark"><i class="fa fa-database"></i> Submit</button>
+        
+      </div>
+</form>
+
+</mat-card>
+
+
+<mat-action-list>
+  <button style="background-color: rgb(121, 22, 22) ;" mat-list-item (click)="questionList()"> Get all Questions </button>
+</mat-action-list>
+
+<mat-list>
+  <mat-list-item *ngFor="let message of questions">
+    
+    <p matLine>
+      <span style="color: rgb(10, 211, 238) ;"> {{message.questionContent}} </span><button mat-button (click)="deleteQuestion(message.id)" style="background-color: rgb(121, 22, 22) ; ">Delete me!</button>
+    </p>
+  </mat-list-item>
+</mat-list>
+
+
+
